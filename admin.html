@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+  <style type="text/tailwindcss">
+    :root {
+      --primary-color: #f59e0b;
+      --secondary-color: #10b981;
+      --accent-color: #ef4444;
+      --background-light: #fdfae8;
+      --background-dark: #1c1917;
+      --text-light: #f1f5f9;
+      --text-dark: #0f172a;
+    }
+  </style>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "var(--primary-color)",
+            secondary: "var(--secondary-color)",
+            accent: "var(--accent-color)",
+            "background-light": "var(--background-light)",
+            "background-dark": "var(--background-dark)",
+            "text-light": "var(--text-light)",
+            "text-dark": "var(--text-dark)",
+          },
+          fontFamily: {
+            display: ["Epilogue", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-dark dark:text-text-light">
+  <div class="relative flex min-h-screen w-full flex-row overflow-x-hidden">
+    <!-- Sidebar -->
+    <aside class="w-64 flex-shrink-0 bg-white dark:bg-background-dark/80 shadow-lg flex flex-col justify-between">
+      <div>
+        <!-- Logo -->
+        <div class="flex items-center gap-4 px-6 py-6 border-b border-primary/20 dark:border-primary/30">
+          <div class="text-primary size-8">
+            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <h1 class="text-xl font-bold">Admin Panel</h1>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="mt-8 flex flex-col gap-2 px-4">
+          <a href="admin.html" class="flex items-center gap-3 rounded-lg bg-primary/10 px-4 py-3 text-primary font-bold">
+            <span class="material-symbols-outlined">dashboard</span> Dashboard
+          </a>
+          <a href="menu.html" class="flex items-center gap-3 rounded-lg px-4 py-3 text-text-dark/70 dark:text-text-light/70 hover:bg-primary/5 hover:text-primary transition-colors">
+            <span class="material-symbols-outlined">restaurant_menu</span> Menu
+          </a>
+          <a href="myorders.html" class="flex items-center gap-3 rounded-lg px-4 py-3 text-text-dark/70 dark:text-text-light/70 hover:bg-primary/5 hover:text-primary transition-colors">
+            <span class="material-symbols-outlined">table_restaurant</span> Orders
+          </a>
+          <a href="checkout.html" class="flex items-center gap-3 rounded-lg px-4 py-3 text-text-dark/70 dark:text-text-light/70 hover:bg-primary/5 hover:text-primary transition-colors">
+            <span class="material-symbols-outlined">payments</span> Checkout
+          </a>
+          <a href="#" class="flex items-center gap-3 rounded-lg px-4 py-3 text-text-dark/70 dark:text-text-light/70 hover:bg-primary/5 hover:text-primary transition-colors">
+            <span class="material-symbols-outlined">bar_chart</span> Reports
+          </a>
+        </nav>
+      </div>
+
+      <!-- Logout -->
+      <div class="px-6 py-6 border-t border-primary/20 dark:border-primary/30">
+        <a href="#" class="flex items-center gap-3 rounded-lg px-4 py-3 text-text-dark/70 dark:text-text-light/70 hover:bg-accent/10 hover:text-accent transition-colors">
+          <span class="material-symbols-outlined">logout</span> Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+      <!-- Header -->
+      <header class="border-b border-primary/20 dark:border-primary/30 bg-white dark:bg-background-dark/80 shadow-sm">
+        <div class="container mx-auto flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+          <h1 class="text-2xl font-bold">Admin Dashboard</h1>
+          <div class="flex items-center gap-4">
+            <button class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 hover:bg-primary/20 transition-colors">
+              <span class="material-symbols-outlined">notifications</span>
+            </button>
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCh8KB-4GKX4XH__h1HKUntb3OlCvYpLH2EKA6ciXRuhrN8-mdGvrXZuTuS_eAOdgs1VNmyUYBHf8Tqu9FRL04rZvotPXSLUnaLGYJft_ZY4Ce0Yg9TF9WXN5nz_sFzB3JssvCAObEfgnpngogYb_h-SSFhppsHZDboR5o0Mi3Td2X-qTHClebJhpqgWe4FdXP4_D6NEw7IUHc7jQNnnRYtiDorHqws3jzaLV2NNgWxKxwsd3Q4i4ZGcBLm9G7Swu8sHhPanATpCQU");'></div>
+              <div>
+                <p class="font-bold text-sm">Chef John</p>
+                <p class="text-xs text-text-dark/60 dark:text-text-light/60">Administrator</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Stats -->
+      <main class="flex-1 px-4 py-10 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white dark:bg-background-dark/80 rounded-xl shadow-md p-6 flex items-center gap-4">
+            <div class="bg-secondary/10 text-secondary p-3 rounded-full">
+              <span class="material-symbols-outlined text-3xl">list_alt</span>
+            </div>
+            <div>
+              <p class="text-sm text-text-dark/70 dark:text-text-light/70">Total Orders</p>
+              <p class="text-2xl font-bold">1,250</p>
+            </div>
+          </div>
+          <div class="bg-white dark:bg-background-dark/80 rounded-xl shadow-md p-6 flex items-center gap-4">
+            <div class="bg-primary/10 text-primary p-3 rounded-full">
+              <span class="material-symbols-outlined text-3xl">hourglass_top</span>
+            </div>
+            <div>
+              <p class="text-sm text-text-dark/70 dark:text-text-light/70">Pending Orders</p>
+              <p class="text-2xl font-bold">12</p>
+            </div>
+          </div>
+          <div class="bg-white dark:bg-background-dark/80 rounded-xl shadow-md p-6 flex items-center gap-4">
+            <div class="bg-accent/10 text-accent p-3 rounded-full">
+              <span class="material-symbols-outlined text-3xl">cancel</span>
+            </div>
+            <div>
+              <p class="text-sm text-text-dark/70 dark:text-text-light/70">Cancelled Orders</p>
+              <p class="text-2xl font-bold">3</p>
+            </div>
+          </div>
+          <div class="bg-white dark:bg-background-dark/80 rounded-xl shadow-md p-6 flex items-center gap-4">
+            <div class="bg-blue-500/10 text-blue-500 p-3 rounded-full">
+              <span class="material-symbols-outlined text-3xl">attach_money</span>
+            </div>
+            <div>
+              <p class="text-sm text-text-dark/70 dark:text-text-light/70">Total Revenue</p>
+              <p class="text-2xl font-bold">$15,670</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orders Table -->
+        <div class="mt-10 bg-white dark:bg-background-dark/80 rounded-xl shadow-md">
+          <div class="p-6 border-b border-primary/20 dark:border-primary/30">
+            <h2 class="text-xl font-bold">Incoming Orders</h2>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead class="bg-primary/5 text-sm font-bold">
+                <tr>
+                  <th class="px-6 py-4">Order ID</th>
+                  <th class="px-6 py-4">Table</th>
+                  <th class="px-6 py-4">Items</th>
+                  <th class="px-6 py-4">Total</th>
+                  <th class="px-6 py-4">Status</th>
+                  <th class="px-6 py-4">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-t border-primary/10">
+                  <td class="px-6 py-4 font-medium">#1024</td>
+                  <td class="px-6 py-4">Table 5</td>
+                  <td class="px-6 py-4">3 items</td>
+                  <td class="px-6 py-4 font-bold">$45.00</td>
+                  <td class="px-6 py-4"><span class="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">Pending</span></td>
+                  <td class="px-6 py-4 flex gap-2">
+                    <button class="p-2 rounded-full hover:bg-secondary/10 text-secondary"><span class="material-symbols-outlined">check_circle</span></button>
+                    <button class="p-2 rounded-full hover:bg-accent/10 text-accent"><span class="material-symbols-outlined">cancel</span></button>
+                  </td>
+                </tr>
+                <tr class="border-t border-primary/10">
+                  <td class="px-6 py-4 font-medium">#1023</td>
+                  <td class="px-6 py-4">Table 2</td>
+                  <td class="px-6 py-4">1 item</td>
+                  <td class="px-6 py-4 font-bold">$12.50</td>
+                  <td class="px-6 py-4"><span class="px-3 py-1 rounded-full text-xs font-medium bg-secondary/10 text-secondary">Completed</span></td>
+                  <td class="px-6 py-4">
+                    <button class="p-2 rounded-full hover:bg-blue-500/10 text-blue-500"><span class="material-symbols-outlined">visibility</span></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

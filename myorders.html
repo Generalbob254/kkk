@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Orders - FoodApp</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#f59e0b",
+            secondary: "#10b981",
+            accent: "#ef4444",
+            "background-light": "#f8f7f5",
+            "background-dark": "#1c1917",
+          },
+          fontFamily: { display: ["Epilogue", "sans-serif"] },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "1rem",
+            xl: "1.5rem",
+            full: "9999px",
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+  <div class="relative flex min-h-screen flex-col">
+    <!-- Navbar -->
+    <header class="border-b border-primary/20 dark:border-primary/30">
+      <div class="container mx-auto flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3">
+          <div class="text-primary size-8">
+            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <h1 class="text-xl font-bold">FoodApp</h1>
+        </div>
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="menu.html" class="text-sm font-medium text-gray-800 dark:text-gray-300 hover:text-primary transition-colors">Menu</a>
+          <a href="checkout.html" class="text-sm font-medium text-gray-800 dark:text-gray-300 hover:text-primary transition-colors">Checkout</a>
+          <a href="myorders.html" class="text-sm font-bold text-primary">My Orders</a>
+          <a href="admin.html" class="text-sm font-medium text-gray-800 dark:text-gray-300 hover:text-primary transition-colors">Admin</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <button class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-gray-700 dark:text-gray-300 hover:bg-primary/20 transition-colors">
+            <span class="material-symbols-outlined text-xl">shopping_cart</span>
+          </button>
+          <button class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-gray-700 dark:text-gray-300 hover:bg-primary/20 transition-colors">
+            <span class="material-symbols-outlined text-xl">notifications</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <h1 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">My Paid Orders</h1>
+
+      <div class="flex flex-col md:flex-row gap-4 mb-6">
+        <input type="text" placeholder="Search by item or order ID"
+          class="flex-1 rounded-xl border-none bg-background-dark/5 dark:bg-background-light/5 px-4 py-3 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary/50 focus:outline-none"/>
+
+        <select class="rounded-xl border-none bg-background-dark/5 dark:bg-background-light/5 px-4 py-3 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary/50 focus:outline-none">
+          <option>Sort by Status</option>
+          <option>Newest First</option>
+          <option>Oldest First</option>
+        </select>
+      </div>
+
+      <!-- Orders List -->
+      <div class="space-y-6">
+        <!-- Order Card 1 -->
+        <div class="rounded-xl bg-white dark:bg-background-dark shadow hover:shadow-lg transition-shadow">
+          <div class="flex flex-col md:flex-row">
+            <div class="w-full md:w-1/3 bg-cover bg-center aspect-video md:aspect-auto" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCcorWuUde0WAhbbDPOshaVnlHK6lgGWb5hbDi5xxG2z0uCKf1VOQzb5tn7NqYkWSbmUFqAB4b1jS4bzxDIKxWir6VJsld6Iw4KOtSa3bhbWUiiW1j4hC8SchoW6aXViry7EguyABgNNBvJvDHoUAGoYTQKPWVXN5flrvWiak_aUyiDaIvI-03-Zo1RYin1N5ukhU6sXCC-TV_WjaeOTt0ANPlKgCNm7acYzA4D8HyTFwhgZVmbONwwoZDoiRv92049QVtkfWt4mgI");'></div>
+            <div class="flex flex-col justify-between p-6 flex-1">
+              <div class="flex justify-between">
+                <p class="text-sm text-gray-500">Order #12345ABC</p>
+                <span class="px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 text-sm font-semibold">Ready for Pickup</span>
+              </div>
+              <h2 class="text-lg font-bold mt-2 text-gray-900 dark:text-white">Margherita Pizza, Classic Burger + 2 more</h2>
+              <p class="text-gray-600 dark:text-gray-300">Total: KES 1,250</p>
+              <div class="flex gap-3 mt-4">
+                <button class="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-bold hover:bg-primary/20">View Receipt</button>
+                <button class="px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold hover:bg-primary/90">Re-order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- You can duplicate this order block for more orders -->
+      </div>
+    </main>
+  </div>
+</body>
+</html>

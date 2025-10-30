@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout - M-Pesa</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+    :root {
+        --primary-color: #f59e0b;
+        --secondary-color: #10b981;
+        --accent-color: #ef4444;
+        --background-light: #fdfae8;
+        --background-dark: #1c1917;
+        --text-light: #f1f5f9;
+        --text-dark: #0f172a;
+        --mpesa-green: #33cc33;
+        --mpesa-red: #cc0000;
+    }
+</style>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    primary: "var(--primary-color)",
+                    secondary: "var(--secondary-color)",
+                    accent: "var(--accent-color)",
+                    "background-light": "var(--background-light)",
+                    "background-dark": "var(--background-dark)",
+                    "text-light": "var(--text-light)",
+                    "text-dark": "var(--text-dark)",
+                    "mpesa-green": "var(--mpesa-green)",
+                    "mpesa-red": "var(--mpesa-red)",
+                },
+                fontFamily: {
+                    display: ["Epilogue", "sans-serif"],
+                },
+                borderRadius: {
+                    DEFAULT: "0.5rem",
+                    lg: "1rem",
+                    xl: "1.5rem",
+                    full: "9999px",
+                },
+            },
+        },
+    };
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-dark dark:text-text-light">
+
+<!-- HEADER / NAVIGATION -->
+<header class="border-b border-primary/20 dark:border-primary/30 bg-white dark:bg-background-dark/80">
+  <div class="container mx-auto flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-4">
+      <div class="text-primary size-8">
+        <span class="material-symbols-outlined text-3xl">restaurant_menu</span>
+      </div>
+      <h1 class="text-xl font-bold">Food Ordering System</h1>
+    </div>
+    <nav class="hidden items-center gap-8 md:flex">
+      <a href="menu.html" class="text-sm font-medium text-text-dark hover:text-primary dark:text-text-light transition-colors">Menu</a>
+      <a href="myorders.html" class="text-sm font-medium text-text-dark hover:text-primary dark:text-text-light transition-colors">My Orders</a>
+      <a href="checkout.html" class="text-sm font-bold text-primary border-b-2 border-primary">Checkout</a>
+      <a href="admin.html" class="text-sm font-medium text-text-dark hover:text-primary dark:text-text-light transition-colors">Admin</a>
+    </nav>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="container mx-auto flex-1 px-4 py-10 sm:px-6 lg:px-8">
+  <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
+
+    <!-- LEFT COLUMN: ORDER SUMMARY -->
+    <div class="space-y-8">
+      <div class="rounded-xl bg-white dark:bg-background-dark/80 p-6 shadow-lg">
+        <h2 class="text-2xl font-bold text-primary">Your Order</h2>
+        <div class="mt-6 space-y-4">
+          <div class="flex items-center gap-4">
+            <img alt="Grilled Chicken" class="h-16 w-16 rounded-lg object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh8KB-4GKX4XH__h1HKUntb3OlCvYpLH2EKA6ciXRuhrN8-mdGvrXZuTuS_eAOdgs1VNmyUYBHf8Tqu9FRL04rZvotPXSLUnaLGYJft_ZY4Ce0Yg9TF9WXN5nz_sFzB3JssvCAObEfgnpngogYb_h-SSFhppsHZDboR5o0Mi3Td2X-qTHClebJhpqgWe4FdXP4_D6NEw7IUHc7jQNnnRYtiDorHqws3jzaLV2NNgWxKxwsd3Q4i4ZGcBLm9G7Swu8sHhPanATpCQU"/>
+            <div class="flex-1">
+              <h3 class="font-semibold">Grilled Chicken with Rice</h3>
+              <p class="text-sm text-text-dark/70 dark:text-text-light/70">1 x $12.50</p>
+            </div>
+            <p class="font-bold">$12.50</p>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <img alt="Vegetable Curry" class="h-16 w-16 rounded-lg object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfo_hajySn09eznePPp7JWi7uLxkNzcNMBOiruwvVVxrWWr5s5EbzjrK_MduuyLzbLhxDXXxxD7ctACRln_HwKk7LWbQIc5O4AkVREtCROyO7MTO05r_BVov96Zp_Hs_abTsbx1W12sVLcWh6nJK-Q84CqNVfFsTeNUkuXXXrONk8oV_PUUcxwWo1nZeMmsSUChpdei3IdjiOd0iVen_GbizEPvN8SYC4hbl0P4szVrheNUP-xRoeyJYcoh4_2mBht82xb056AkWA"/>
+            <div class="flex-1">
+              <h3 class="font-semibold">Vegetable Curry</h3>
+              <p class="text-sm text-text-dark/70 dark:text-text-light/70">2 x $10.00</p>
+            </div>
+            <p class="font-bold">$20.00</p>
+          </div>
+        </div>
+
+        <div class="mt-6 border-t border-primary/20 pt-4 space-y-2">
+          <div class="flex justify-between">
+            <span>Subtotal</span>
+            <span class="font-semibold">$32.50</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Delivery Fee</span>
+            <span class="font-semibold">$5.00</span>
+          </div>
+          <div class="flex justify-between text-lg font-bold text-primary">
+            <span>Total Amount</span>
+            <span>$37.50</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN: PAYMENT SECTION -->
+    <div class="space-y-8">
+      <div class="rounded-xl bg-white dark:bg-background-dark/80 p-6 shadow-lg">
+        <div class="flex flex-col items-center">
+          <img alt="M-Pesa Logo" class="h-12"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCODhplSjn890Ox1WvkJSDxkIw7GGBVPDinPlLonA_W9FqZV0rOYnv1W94SLVTjdNEtCeh-FCMLEYnggK-1dgs0uL2cecEV9lVg4M8ow7etiHJF_ksvSYa9HuwzE4OQkdhzT4a59Z1RQxO1Jdl17FK4qmmOhAvIV-m2OjZx2zoeBff3DxQy5mx0YxbLajNr7Mtk_0rLTX-2QpujYrKhKV0bURsTxnG9Who5WoTP1f33JH81AsOlpJH4uw0bxR7lWh7byBGR1PTU5I8"/>
+          <h2 class="mt-4 text-2xl font-bold text-mpesa-green">Pay with M-Pesa</h2>
+          <p class="mt-2 text-center text-sm text-text-dark/70 dark:text-text-light/70">
+            Enter your M-Pesa phone number to receive a payment prompt.
+          </p>
+        </div>
+
+        <div class="mt-8">
+          <label class="block font-semibold text-mpesa-green" for="phone">M-Pesa Phone Number</label>
+          <div class="relative mt-2">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-dark/50">phone</span>
+            <input class="w-full rounded-lg border-primary/30 bg-background-light py-3 pl-10 pr-4 dark:bg-background-dark focus:border-mpesa-green focus:ring-mpesa-green" id="phone" placeholder="e.g., 0712 345 678" type="tel"/>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <button class="w-full flex items-center justify-center rounded-full h-14 px-6 bg-mpesa-green text-white text-lg font-bold shadow-lg hover:bg-mpesa-green/90 transition-all duration-300 ease-in-out transform hover:scale-105">
+            <span class="material-symbols-outlined mr-2">check_circle</span> Confirm & Pay $37.50
+          </button>
+          <p class="mt-4 text-center text-xs text-text-dark/60 dark:text-text-light/60">
+            You will receive an STK push on your phone.
+          </p>
+        </div>
+
+        <div class="mt-6 flex items-start gap-3 rounded-lg bg-primary/5 p-4 border border-primary/20">
+          <span class="material-symbols-outlined text-primary mt-1">info</span>
+          <p class="text-sm text-text-dark/80 dark:text-text-light/80">
+            By proceeding, you agree to our
+            <a class="font-bold text-primary hover:underline" href="#">Terms of Service</a>
+            and confirm you are the authorized user of the provided M-Pesa number.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 rounded-xl bg-white dark:bg-background-dark/80 p-6 shadow-lg">
+        <div class="flex flex-col items-center">
+          <h3 class="text-xl font-bold text-secondary">Prefer to Pay with Cash?</h3>
+          <p class="mt-2 text-center text-sm text-text-dark/70 dark:text-text-light/70">
+            No problem! Press the button below to signal our staff.
+          </p>
+          <button class="mt-6 w-full flex items-center justify-center rounded-full h-14 px-6 bg-secondary text-white text-lg font-bold shadow-lg hover:bg-secondary/90 transition-all duration-300 ease-in-out transform hover:scale-105">
+            <span class="material-symbols-outlined mr-2">payments</span> Signal for Cash Payment
+          </button>
+          <p class="mt-4 text-center text-xs text-text-dark/60 dark:text-text-light/60">
+            A staff member will come to your table to assist you.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

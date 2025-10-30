@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Menu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+  :root {
+      --primary-color: #f59e0b;
+      --secondary-color: #10b981;
+      --accent-color: #ef4444;
+      --background-light: #fdfae8;
+      --background-dark: #1c1917;
+      --text-light: #f1f5f9;
+      --text-dark: #0f172a;
+  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: "var(--primary-color)",
+          secondary: "var(--secondary-color)",
+          accent: "var(--accent-color)",
+          "background-light": "var(--background-light)",
+          "background-dark": "var(--background-dark)",
+          "text-light": "var(--text-light)",
+          "text-dark": "var(--text-dark)",
+        },
+        fontFamily: {
+          display: ["Epilogue", "sans-serif"],
+        },
+      },
+    },
+  };
+</script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-dark dark:text-text-light">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+
+<!-- NAVBAR -->
+<header class="border-b border-primary/20 dark:border-primary/30 bg-white dark:bg-background-dark/80">
+  <div class="container mx-auto flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-4">
+      <div class="text-primary size-8">
+        <span class="material-symbols-outlined text-3xl">restaurant_menu</span>
+      </div>
+      <h1 class="text-xl font-bold">Food Ordering System</h1>
+    </div>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="menu.html" class="text-sm font-bold text-primary border-b-2 border-primary">Menu</a>
+      <a href="myorders.html" class="text-sm font-medium text-text-dark hover:text-primary dark:text-text-light transition-colors">My Orders</a>
+      <a href="checkout.html" class="text-sm font-medium text-text-dark hover:text-primary dark:text-text-light transition-colors">Checkout</a>
+      <a href="admin.html" class="text-sm font-medium text-text-dark hover:text-primary dark:text-text-light transition-colors">Admin</a>
+    </nav>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="container mx-auto flex-1 px-4 py-10 sm:px-6 lg:px-8">
+  <h2 class="text-4xl font-bold tracking-tight text-text-dark dark:text-text-light mb-6">Discover Our Dishes</h2>
+
+  <!-- CATEGORY BUTTONS -->
+  <div class="flex gap-6 border-b border-primary/20 dark:border-primary/30 mb-8">
+    <button class="category-btn border-b-2 border-primary text-primary font-bold py-2" data-category="popular">Popular</button>
+    <button class="category-btn text-text-dark/70 hover:text-secondary py-2" data-category="breakfast">Breakfast</button>
+    <button class="category-btn text-text-dark/70 hover:text-secondary py-2" data-category="lunch">Lunch</button>
+    <button class="category-btn text-text-dark/70 hover:text-secondary py-2" data-category="dinner">Dinner</button>
+  </div>
+
+  <!-- MENU GRID -->
+  <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"></div>
+</main>
+</div>
+
+<!-- SCRIPT -->
+<script>
+const menuData = {
+  popular: [
+    { name: "Grilled Chicken with Rice", price: "$12.50", img: "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg" },
+    { name: "Vegetable Curry", price: "$10.00", img: "https://cdn.pixabay.com/photo/2016/02/19/11/30/vegetable-1209505_1280.jpg" },
+    { name: "Beef Stew", price: "$14.00", img: "https://cdn.pixabay.com/photo/2017/10/25/12/20/stew-2884576_1280.jpg" },
+  ],
+  breakfast: [
+    { name: "Pancakes & Syrup", price: "$8.50", img: "https://cdn.pixabay.com/photo/2017/01/06/19/15/pancakes-1952997_1280.jpg" },
+    { name: "Fruit Smoothie", price: "$6.00", img: "https://cdn.pixabay.com/photo/2015/07/17/12/44/smoothies-849709_1280.jpg" },
+    { name: "Caesar Salad", price: "$9.00", img: "https://cdn.pixabay.com/photo/2016/03/05/19/02/salad-1238248_1280.jpg" },
+  ],
+  lunch: [
+    { name: "Classic Burger", price: "$11.00", img: "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg" },
+    { name: "Grilled Steak", price: "$18.00", img: "https://cdn.pixabay.com/photo/2016/03/05/19/02/steak-1238247_1280.jpg" },
+    { name: "Chicken Wrap", price: "$9.50", img: "https://cdn.pixabay.com/photo/2017/01/16/19/40/wraps-1984053_1280.jpg" },
+  ],
+  dinner: [
+    { name: "Grilled Salmon", price: "$19.00", img: "https://cdn.pixabay.com/photo/2016/03/05/19/02/salmon-1238249_1280.jpg" },
+    { name: "Pasta Alfredo", price: "$13.50", img: "https://cdn.pixabay.com/photo/2017/05/07/08/56/pasta-2291908_1280.jpg" },
+    { name: "BBQ Ribs", price: "$21.00", img: "https://cdn.pixabay.com/photo/2015/03/26/09/54/ribs-690097_1280.jpg" },
+  ]
+};
+
+function renderMenu(category) {
+  const container = document.getElementById("menu-grid");
+  container.innerHTML = "";
+  menuData[category].forEach(item => {
+    const card = document.createElement("div");
+    card.className = "bg-white dark:bg-background-dark/80 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer";
+    card.innerHTML = `
+      <div class="relative group">
+        <img src="${item.img}" alt="${item.name}" class="h-48 w-full object-cover group-hover:opacity-90 transition">
+        <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
+          <span class="text-white font-bold text-lg">View Details</span>
+        </div>
+      </div>
+      <div class="p-4">
+        <h3 class="font-bold text-lg">${item.name}</h3>
+        <p class="text-primary font-semibold">${item.price}</p>
+        <button class="mt-4 w-full bg-secondary text-white py-2 rounded-lg hover:bg-secondary/90 transition">Add to Order</button>
+      </div>
+    `;
+
+    // Click events on image or button
+    card.querySelector("img").addEventListener("click", () => {
+      alert(`You clicked on ${item.name}!`);
+    });
+    card.querySelector("button").addEventListener("click", () => {
+      alert(`${item.name} added to order!`);
+    });
+
+    container.appendChild(card);
+  });
+}
+
+document.querySelectorAll(".category-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".category-btn").forEach(b => b.classList.remove("border-primary", "text-primary", "font-bold", "border-b-2"));
+    btn.classList.add("border-b-2", "border-primary", "text-primary", "font-bold");
+    renderMenu(btn.dataset.category);
+  });
+});
+
+renderMenu("popular");
+</script>
+</body>
+</html>
